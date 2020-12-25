@@ -18,6 +18,10 @@ namespace Microsoft.Xna.Framework.Content
             input.Read(data, 0, dataSize);
 
             var buffer = new VertexBuffer(input.GetGraphicsDevice(), declaration, vertexCount, BufferUsage.None);
+#if GLES
+            buffer.raw = new byte[data.Length];
+            Array.Copy(data, buffer.raw, data.Length);
+#endif
             buffer.SetData(data, 0, dataSize);
             ContentManager.ScratchBufferPool.Return(data);
             return buffer;

@@ -171,11 +171,11 @@ namespace MonoGame.Effect
 
 			// Add the required precision specifiers for GLES.
 
-            var floatPrecision = dxshader.IsVertexShader ? "precision highp float;\r\n" : "precision mediump float;\r\n";
+            var floatPrecision = dxshader.IsVertexShader ? "precision highp float;\r\n" : "precision highp float;\r\n";
 
 			glslCode = "#ifdef GL_ES\r\n" +
                  floatPrecision +
-				"precision mediump int;\r\n" +
+                "precision mediump int;\r\n" +
 				"#endif\r\n" +
 				glslCode;
 
